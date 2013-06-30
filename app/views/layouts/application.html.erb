@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= yield(:title) %></title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div id="container">
+
+	<div id="header">
+		<%= link_to 'QnA', root_path %>
+		<div id="searchbar">
+			<%= render 'common/search_form' %>
+		</div><!-- end searchbar -->
+	</div><!-- end header -->
+
+	<div id="nav">
+		<ul>
+			<li><%= link_to 'Home', root_path %></li>
+			<% if logged_in? %>
+				<li><%= link_to "Your Qs", your_questions_path %></li>
+				<li><%= link_to "Logout (#{current_user.username})", logout_path, method: 'delete' %></li>
+			<% else %>
+				<li><%= link_to 'Register', register_path %></li>
+				<li><%= link_to 'Login', login_path %></li>
+			<% end %>
+		</ul>
+	</div><!-- end nav -->
+
+	<div id="content">
+		<% flash.each do |key,value| %>
+			<p id="message"><%= value %></p>
+		<% end %>
+		<%= yield %>
+	</div><!-- end content -->
+
+	<div id="footer">
+		QnA application. Rails 3.2 <%= Date.today.year %>
+	</div><!-- end footer -->
+
+</div> <!-- end container -->
+</body>
+</html>

@@ -1,0 +1,11 @@
+<%= form_for(@question) do |f| %>
+	<%= render 'common/form_errors', object: @question %>
+
+	<p>
+		<%= f.label :body, "Question" %><br />
+		<%= f.text_field :body %>
+		<%= f.submit "Ask Q" %>
+	</p>
+
+
+<% end %>

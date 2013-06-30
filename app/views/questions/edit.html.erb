@@ -1,0 +1,21 @@
+<% provide(:title, 'QnA- Edit') %>
+
+<h1>Edit your Q</h1>
+
+<%= form_for(@question) do |f| %>
+	<%= render 'common/form_errors', object: @question %>
+
+	<p>
+		<%= f.label :body %><br />
+		<%= f.text_field :body %>
+	</p>
+
+	<p>
+		<%= f.label :solved %>
+		<%= f.check_box :solved %>
+	</p>
+
+	<p>
+		<%= f.submit 'Update' %>
+	</p>
+<% end %>

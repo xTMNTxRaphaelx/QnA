@@ -1,0 +1,12 @@
+<% provide(:title, 'Your Questions') %>
+
+<h1>Your Questions</h1>
+
+<% if @questions.any? %>
+	<ul>
+		<%= render @questions %>
+	</ul>
+	<%= will_paginate %>
+<% else %>
+	<p>You've not posted any questions yet.</p>
+<% end %>

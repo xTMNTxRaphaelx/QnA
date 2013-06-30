@@ -1,0 +1,12 @@
+<% provide(:title, 'QnA - Search') %>
+
+<h1> Search Results </h1>
+
+<% if @questions.any? %>
+	<ul>
+		<%= render @questions %>
+	</ul>
+	<%= will_paginate %>
+<% else %>
+	<p> No results, please try different searchterm</p>
+<% end %>
